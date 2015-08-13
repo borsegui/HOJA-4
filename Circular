@@ -1,0 +1,67 @@
+/**
+ * UNIVERSIDAD DEL VALLE DE GUATEMALA
+ * YASMIN VALDEZ
+ * DIEGO DE LEON
+ */
+public class Circular<E> implements ListaEnlazada<E>{
+	Nodo<E> tail;
+	int size;
+	public Circular(){
+		tail = null;
+		size = 0;
+	}
+
+	public int size(){
+		return size;
+	}
+
+	public void addFirst(E value){
+		Nodo<E> nodo = new Nodo<E>(value);
+		nodo.setValor(value);
+		size++;
+		if(tail!=null){
+			nodo.setNext(tail.getNext());
+			tail.setNext(nodo);
+		}
+		else{
+			tail = nodo;
+			tail.setNext(tail);
+		}
+	}
+
+	@Override
+	public E removeFirst() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public E removeLast() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addLast(E value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public E getFirst() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public E getLast() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean contains(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}
