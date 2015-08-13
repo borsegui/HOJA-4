@@ -1,0 +1,24 @@
+
+/**
+ * UNIVERSIDAD DEL VALLE DE GUATEMALA
+ * YASMIN VALDEZ
+ * DIEGO DE LEON
+ */
+
+public class NodoDoble<E> extends Nodo<E>{
+	
+	private NodoDoble<E> prevE;
+	
+	
+	public NodoDoble(E v) {
+		super(v);
+		// TODO Auto-generated constructor stub
+	}
+
+	public NodoDoble<E> getPrevious() {
+		return prevE;
+	}
+	public void setPrevious(NodoDoble<E> prevE) {
+		this.prevE = prevE;
+	}	
+}
