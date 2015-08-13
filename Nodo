@@ -1,0 +1,34 @@
+
+/**
+ * UNIVERSIDAD DEL VALLE DE GUATEMALA
+ * YASMIN VALDEZ
+ * DIEGO DE LEON
+ */
+public class Nodo<E>{
+
+	
+	protected E elements;
+	protected Nodo<E> NextE;
+	
+	public Nodo(E v){
+		elements = v;
+		 
+	}
+	
+	public void setNext(Nodo<E> E){
+		NextE = E;
+	}
+	
+	public Nodo<E> getNext(){
+		return NextE;
+	}
+	
+	public void setValor(E v){
+		elements = v;
+	}
+	
+	public E getValor(){
+		return elements;
+	}
+}
+	
