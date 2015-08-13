@@ -1,0 +1,113 @@
+/**
+ * UNIVERSIDAD DEL VALLE DE GUATEMALA
+ * YASMIN VALDEZ
+ * DIEGO DE LEON
+ */
+public class SimplenteEnlazada<E> implements ListaEnlazada<E>{
+	
+	Nodo<E> head;
+	int contador;
+	
+	public SimplenteEnlazada(){
+		head = null;
+		contador=0;
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		int elementos=0;
+		Nodo<E> finger = head;
+		while(finger != null){
+			elementos++;
+			finger.setNext(finger.getNext());
+		}
+		return elementos;
+	}
+
+	@Override
+	public void addFirst(E value) {
+		// TODO Auto-generated method stub
+		head = new Nodo<E>(value);
+		head.setValor(value);
+		contador++;
+		
+	}
+
+	@Override
+	public E removeFirst() {
+		// TODO Auto-generated method stub
+		Nodo<E> temp=head;
+		head.setNext(head.getNext());
+		contador--;
+		return temp.getValor();
+	}
+
+	@Override
+	public E removeLast() {
+		// TODO Auto-generated method stub
+		Nodo<E> finger = head;
+		Nodo<E> previous = null;
+		while(finger.getNext() != null){
+			previous = finger;
+			finger.setNext(finger.getNext());
+		}
+		if (previous == null){
+			head = null;
+		} else {
+			previous.setNext(null);
+		}
+		contador--;
+		return finger.getValor();
+	}
+	
+
+	@Override
+	public void addLast(E value) {
+		// TODO Auto-generated method stub
+		Nodo<E> temp=new Nodo<E>(value);
+		temp.setValor(value);
+		if(head!=null){
+			Nodo<E> finger = head;
+			while(finger.getNext()!=null){
+				finger.setNext(finger.getNext());
+			}
+			finger.setNext(temp);
+		} else {
+			head= temp;
+			contador++;
+		}
+		
+	}
+
+	@Override
+	public E getFirst() {
+		// TODO Auto-generated method stub
+		head = new Nodo<E>(null);
+		return head.getValor();
+	}
+
+	@Override
+	public E getLast() {
+		// TODO Auto-generated method stub
+		Nodo <E> finger = head;
+		Nodo <E> previous = null;
+		while(finger.getNext()!=null){
+			previous=finger;
+			finger.setNext(finger.getNext());
+		}
+		return finger.getValor();
+	}
+
+	@Override
+	public boolean contains(E value) {
+		// TODO Auto-generated method stub
+		Nodo<E> finger = head;
+		while(finger!= null && !finger.getValor().equals(value)){
+			finger.setNext(finger.getNext());
+		}
+		return finger != null;
+	}
+	
+
+}
